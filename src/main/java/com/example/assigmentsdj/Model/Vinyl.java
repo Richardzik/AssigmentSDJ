@@ -74,4 +74,20 @@ public class Vinyl {
     public void setToBeRemoved(boolean toBeRemoved) {
         this.toBeRemoved = toBeRemoved;
     }
+    public void borrow(Vinyl vinyl, Person person)
+    {
+        lendingState.borrow(vinyl,person);
+    }
+    public void reserve(Vinyl vinyl, Person person)
+    {
+        lendingState.reserve(vinyl,person);
+    }
+    public void returnIt(Vinyl vinyl, Person person)
+    {
+        lendingState.returnIt(vinyl,person);
+    }
+    public void remove(Vinyl vinyl)
+    {
+        lendingState.remove(vinyl);
+    }
 }
