@@ -10,7 +10,7 @@ public class Available implements State{
     @Override
     public void reserve(Vinyl vinyl, Person person) {
         vinyl.setLendingState(new Reserved());
-        vinyl.setClient(person);
+        vinyl.setReservist(person);
         System.out.println(vinyl + " got reserved");
     }
 
@@ -18,8 +18,14 @@ public class Available implements State{
     public void returnIt(Vinyl vinyl, Person person) {
         throw new RuntimeException("The vinyl is available u can not return it");
     }
+    @Override
+    public void remove(Vinyl vinyl)
+    {
+        vinyl.setLendingState(new Removed());
+        System.out.println(vinyl.getTitle() +" has been removed");
+    }
     public String toString()
     {
-        return "Vinyl is available";
+        return "available";
     }
 }

@@ -10,10 +10,11 @@ public class Borrowed implements State{
 
     @Override
     public void reserve(Vinyl vinyl, Person person) {
-        if(!vinyl.getClient().equals(person))
+        if(!vinyl.getBorrower().equals(person) && !vinyl.isToBeRemoved())
         {
             vinyl.setLendingState(new Borrowed_Reserved());
             System.out.println("Vinyl got reserved by " + person);
+            vinyl.setReservist(person);
         }
         else
             throw new RuntimeException("You cannot reserve vinyl that you borrowed");
@@ -21,13 +22,22 @@ public class Borrowed implements State{
 
     @Override
     public void returnIt(Vinyl vinyl, Person person) {
-        if(vinyl.getClient().equals(person))
+        if(vinyl.getBorrower().equals(person))
         {
             vinyl.setLendingState(new Available());
             System.out.println("Vinyl got returned by " + person);
-            vinyl.setClient(null);
+            vinyl.setBorrower(null);
         }
         else
             throw new RuntimeException("You cannot return vinyl that you don't have");
+    }
+    @Override
+    public void remove(Vinyl vinyl)
+    {
+        vinyl.setToBeRemoved(true);
+    }
+    public String toString()
+    {
+        return "borrowed";
     }
 }

@@ -5,14 +5,18 @@ public class Vinyl {
     private String artist;
     private int year;
     private State lendingState;
-    private Person client;
-    public Vinyl(String title, String artist, int year, Person client)
+    private Person borrower;
+    private Person reservist;
+    private boolean toBeRemoved;
+    public Vinyl(String title, String artist, int year, Person borrower, Person reservist)
     {
         this.title=title;
         this.artist=artist;
         this.year = year;
         this.lendingState = new Available();
-        this.client = client;
+        this.borrower = borrower;
+        this.reservist = reservist;
+        toBeRemoved = false;
     }
 
     public State getLendingState() {
@@ -47,12 +51,27 @@ public class Vinyl {
         this.title = title;
     }
 
-    public Person getClient() {
-        return client;
+    public Person getBorrower() {
+        return borrower;
     }
 
-    public void setClient(Person client) {
-        this.client = client;
+    public void setBorrower(Person borrower) {
+        this.borrower = borrower;
     }
 
+    public Person getReservist() {
+        return reservist;
+    }
+
+    public void setReservist(Person reservist) {
+        this.reservist = reservist;
+    }
+
+    public boolean isToBeRemoved() {
+        return toBeRemoved;
+    }
+
+    public void setToBeRemoved(boolean toBeRemoved) {
+        this.toBeRemoved = toBeRemoved;
+    }
 }
