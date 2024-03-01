@@ -19,11 +19,12 @@
             </Label>
             <TableView layoutX="22.0" layoutY="31.0" prefHeight="346.0" prefWidth="491.0">
                <columns>
-                  <TableColumn prefWidth="183.0" text="Title" />
-                  <TableColumn minWidth="4.0" prefWidth="95.0" text="Artist" />
-                  <TableColumn minWidth="3.0" prefWidth="46.0" text="Year" />
-                  <TableColumn prefWidth="72.0" text="State" />
-                  <TableColumn prefWidth="94.0" text="Customer" />
+                  <TableColumn prefWidth="151.0" text="Title" />
+                  <TableColumn minWidth="4.0" prefWidth="89.0" text="Artist" />
+                  <TableColumn minWidth="3.0" prefWidth="56.0" text="Year" />
+                  <TableColumn prefWidth="57.0" text="State" />
+                  <TableColumn prefWidth="67.0" text="Reservist" />
+                  <TableColumn prefWidth="70.0" text="Borrower" />
                </columns>
             </TableView>
             <Button layoutX="549.0" layoutY="61.0" mnemonicParsing="false" text="Reserve" />

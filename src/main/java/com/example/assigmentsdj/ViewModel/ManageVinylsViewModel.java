@@ -80,9 +80,10 @@ public class ManageVinylsViewModel implements PropertyChangeListener {
     public void bindSelectedVinyl(ReadOnlyObjectProperty<Vinyl> property){
         vinyl.bind(property);
     }
-    public void bindSelected(ReadOnlyObjectProperty<Person> property){
-        person.bind(property);
+    public void bindSelected(ReadOnlyObjectProperty<Vinyl> property){
+        vinyl.bind(property);
     }
+
 
 
     ////Probably not functional

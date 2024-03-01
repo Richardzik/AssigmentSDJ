@@ -1,10 +1,9 @@
 package com.example.assigmentsdj.View;
-import com.example.assigmentsdj.*;
+
 import com.example.assigmentsdj.ViewModel.ViewModelFactory;
 import javafx.scene.Scene;
+import javafx.scene.layout.Region; // Import the correct Region class
 import javafx.stage.Stage;
-
-import javax.swing.plaf.synth.Region;
 
 public class ViewHandler {
     private final Scene currentScene;
@@ -23,12 +22,12 @@ public class ViewHandler {
 
     public void openView(String id) {
         Region root = viewFactory.loadView(id);
-        currentScene.setRoot(root);
-        if (root.getUserData() == null) {
-            primaryStage.setTitle("");
-        } else {
-            primaryStage.setTitle(root.getUserData().toString());
+        if (root == null) {
+            return; // Handle the case where the view is not loaded properly
         }
+        currentScene.setRoot(root);
+        Object userData = root.getUserData();
+        primaryStage.setTitle(userData != null ? userData.toString() : "");
         primaryStage.setScene(currentScene);
         primaryStage.sizeToScene();
         primaryStage.show();

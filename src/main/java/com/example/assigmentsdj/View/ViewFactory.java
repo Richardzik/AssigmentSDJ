@@ -4,8 +4,9 @@ import com.example.assigmentsdj.ViewModel.ManageVinylsViewModel;
 import com.example.assigmentsdj.ViewModel.ViewModelFactory;
 import javafx.fxml.FXMLLoader;
 
-import javax.swing.plaf.synth.Region;
+import javafx.scene.layout.Region;
 import java.io.IOError;
+import java.io.IOException;
 
 public class ViewFactory {
     public static final String MANAGE = "manage";
@@ -19,22 +20,23 @@ public class ViewFactory {
         this.manageVinylsViewController = null;
     }
 
-    public Region loadVinylView(){
-        if(manageVinylsViewController == null){
+    public Region loadVinylView() {
+        if (manageVinylsViewController == null) {
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("resources/com.example.assigmentsdj/VinylListView.fxml"));
-            try{
+            loader.setLocation(getClass().getResource("/com/example/assigmentssdj/VinylListView.fxml")); //PATH DOES NOT WORK
+            try {
                 Region root = loader.load();
                 manageVinylsViewController = loader.getController();
                 manageVinylsViewController.init(viewHandler, viewModelFactory.getManageVinylsViewModel(), root);
                 return root;
-            }catch(Exception e){
+            } catch (IOException e) {
                 throw new IOError(e);
             }
         }
-        manageVinylsViewController.reset();
         return manageVinylsViewController.getRoot();
     }
+
+
     public Region loadView(String id){
         return switch (id){
             case MANAGE -> loadVinylView();
