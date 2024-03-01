@@ -1,4 +1,45 @@
 package com.example.assigmentsdj.View;
+import com.example.assigmentsdj.*;
+import com.example.assigmentsdj.ViewModel.ManageVinylsViewModel;
+import com.example.assigmentsdj.ViewModel.ViewModelFactory;
+import javafx.fxml.FXMLLoader;
+
+import javax.swing.plaf.synth.Region;
+import java.io.IOError;
 
 public class ViewFactory {
+    public static final String MANAGE = "manage";
+    private final ViewHandler viewHandler;
+    private final ViewModelFactory viewModelFactory;
+    private ManageVinylsViewController manageVinylsViewController;
+
+    public ViewFactory(ViewHandler viewHandler, ViewModelFactory viewModelFactory) {
+        this.viewHandler = viewHandler;
+        this.viewModelFactory = viewModelFactory;
+        this.manageVinylsViewController = null;
+    }
+
+    public Region loadVinylView(){
+        if(manageVinylsViewController == null){
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("resources/com.example.assigmentsdj/VinylListView.fxml"));
+            try{
+                Region root = loader.load();
+                manageVinylsViewController = loader.getController();
+                manageVinylsViewController.init(viewHandler, viewModelFactory.getManageVinylsViewModel(), root);
+                return root;
+            }catch(Exception e){
+                throw new IOError(e);
+            }
+        }
+        manageVinylsViewController.reset();
+        return manageVinylsViewController.getRoot();
+    }
+    public Region loadView(String id){
+        return switch (id){
+            case MANAGE -> loadVinylView();
+            default -> throw new IllegalArgumentException("Unknow view: " + id);
+        };
+    }
+
 }
