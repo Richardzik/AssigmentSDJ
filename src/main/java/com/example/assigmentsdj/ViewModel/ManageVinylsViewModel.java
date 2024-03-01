@@ -21,14 +21,54 @@ public class ManageVinylsViewModel implements PropertyChangeListener {
     private final ListProperty<Person> persons;
 
     private ObjectProperty<Vinyl> vinyl;
+    private ObjectProperty<Person> person;
 
 
     public ManageVinylsViewModel(Model model) {
         this.model = model;
+        this.message = new SimpleStringProperty();
         this.vinyls = new SimpleListProperty<>(FXCollections.observableArrayList());
         this.persons = new SimpleListProperty<>(FXCollections.observableArrayList());
         this.vinyl = new SimpleObjectProperty<>();
+        this.person = new SimpleObjectProperty<>();
         model.addPropertyChangeListener(this);
+    }
+
+    public void reserve(){
+        try{
+            if(vinyl.get() != null && person.get() != null)
+                model.reserve(vinyl.get(), person.get());
+        }
+        catch (Exception e){
+            message.setValue(e.getMessage());
+        }
+    }
+    public void borrow() {
+        try{
+            if(vinyl.get() != null && person.get() != null)
+                model.borrow(vinyl.get(), person.get());
+        }
+        catch (Exception e){
+            message.setValue(e.getMessage());
+        }
+    }
+    public void returnIt(){
+        try{
+            if(vinyl.get() != null && person.get() != null)
+             model.returnIt(vinyl.get(), person.get());
+        }
+        catch (Exception e){
+            message.setValue(e.getMessage());
+        }
+    }
+    public void remove() {
+        try{
+            if(vinyl.get() != null)
+             model.remove(vinyl.get());
+        }
+        catch (Exception e){
+            message.setValue(e.getMessage());
+        }
     }
 
     public void bindVinyl(ObjectProperty<ObservableList<Vinyl>> property){
@@ -37,10 +77,15 @@ public class ManageVinylsViewModel implements PropertyChangeListener {
     public void bindPersons(ObjectProperty<ObservableList<Person>> property){
         property.bind(persons);
     }
-    public void bindSelected(ReadOnlyObjectProperty<Vinyl> property){
+    public void bindSelectedVinyl(ReadOnlyObjectProperty<Vinyl> property){
         vinyl.bind(property);
     }
+    public void bindSelected(ReadOnlyObjectProperty<Person> property){
+        person.bind(property);
+    }
 
+
+    ////Probably not functional
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
         Platform.runLater(() -> {
