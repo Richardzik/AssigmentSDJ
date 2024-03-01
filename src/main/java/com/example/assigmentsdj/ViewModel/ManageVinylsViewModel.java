@@ -21,6 +21,7 @@ public class ManageVinylsViewModel implements PropertyChangeListener {
     private final ListProperty<Person> persons;
 
     private ObjectProperty<Vinyl> vinyl;
+    private String test;
 
     public ManageVinylsViewModel(Model model) {
         this.model = model;
