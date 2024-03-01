@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ManageVinylsViewController">
+<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.assigmentsdj.View.ManageVinylsViewController">
    <children>
       <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
          <children>
@@ -17,22 +17,22 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <TableView layoutX="22.0" layoutY="31.0" prefHeight="346.0" prefWidth="491.0">
+            <Button fx:id="ReserveButton" layoutX="549.0" layoutY="61.0" mnemonicParsing="false" onAction="#onReserve" text="Reserve" />
+            <Button fx:id="BorrowButton" layoutX="549.0" layoutY="98.0" mnemonicParsing="false" onAction="#onBorrow" prefHeight="26.0" prefWidth="62.0" text="Borrow" />
+            <Button fx:id="ReturnButton" layoutX="549.0" layoutY="135.0" mnemonicParsing="false" onAction="#onReturn" prefHeight="26.0" prefWidth="62.0" text="Return" />
+            <Button fx:id="RemoveButton" layoutX="549.0" layoutY="175.0" mnemonicParsing="false" onAction="#onRemove" prefHeight="26.0" prefWidth="62.0" text="Remove" />
+            <Button layoutX="549.0" layoutY="351.0" mnemonicParsing="false" onAction="#onBack" prefHeight="26.0" prefWidth="62.0" text="Exit" />
+            <Button layoutX="527.0" layoutY="264.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="103.0" text="Simulate" />
+            <TableView fx:id="VinylTableView" layoutX="22.0" layoutY="31.0" onMouseClicked="#onSelect" prefHeight="346.0" prefWidth="491.0">
                <columns>
-                  <TableColumn prefWidth="151.0" text="Title" />
-                  <TableColumn minWidth="4.0" prefWidth="89.0" text="Artist" />
-                  <TableColumn minWidth="3.0" prefWidth="56.0" text="Year" />
-                  <TableColumn prefWidth="57.0" text="State" />
-                  <TableColumn prefWidth="67.0" text="Reservist" />
-                  <TableColumn prefWidth="70.0" text="Borrower" />
+                  <TableColumn fx:id="VinylTitle" prefWidth="151.0" text="Title" />
+                  <TableColumn fx:id="VinylArtist" minWidth="4.0" prefWidth="89.0" text="Artist" />
+                  <TableColumn fx:id="VinylYear" minWidth="3.0" prefWidth="56.0" text="Year" />
+                  <TableColumn fx:id="VinylState" prefWidth="57.0" text="State" />
+                  <TableColumn fx:id="VinylReservist" prefWidth="67.0" text="Reservist" />
+                  <TableColumn fx:id="VinylBorrower" prefWidth="70.0" text="Borrower" />
                </columns>
             </TableView>
-            <Button layoutX="549.0" layoutY="61.0" mnemonicParsing="false" text="Reserve" />
-            <Button layoutX="549.0" layoutY="98.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="62.0" text="Borrow" />
-            <Button layoutX="549.0" layoutY="135.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="62.0" text="Return" />
-            <Button layoutX="549.0" layoutY="175.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="62.0" text="Remove" />
-            <Button layoutX="549.0" layoutY="351.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="62.0" text="Exit" />
-            <Button layoutX="527.0" layoutY="264.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="103.0" text="Simulate" />
          </children>
       </AnchorPane>
    </children>

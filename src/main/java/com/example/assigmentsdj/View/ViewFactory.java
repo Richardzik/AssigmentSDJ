@@ -23,7 +23,7 @@ public class ViewFactory {
     public Region loadVinylView() {
         if (manageVinylsViewController == null) {
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("/com/example/assigmentssdj/VinylListView.fxml")); //PATH DOES NOT WORK
+            loader.setLocation(getClass().getResource("/com.example.assigmentssdj/VinylListView.fxml"));
             try {
                 Region root = loader.load();
                 manageVinylsViewController = loader.getController();

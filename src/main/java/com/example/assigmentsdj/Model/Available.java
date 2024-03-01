@@ -16,7 +16,7 @@ public class Available implements State{
 
     @Override
     public void returnIt(Vinyl vinyl, Person person) {
-        throw new RuntimeException("The vinyl is available u can not return it");
+        throw new RuntimeException("The vinyl is available you cannot return it");
     }
     @Override
     public void remove(Vinyl vinyl)

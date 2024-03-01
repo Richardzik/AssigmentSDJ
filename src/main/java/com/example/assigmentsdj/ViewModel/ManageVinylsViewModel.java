@@ -74,12 +74,6 @@ public class ManageVinylsViewModel implements PropertyChangeListener {
     public void bindVinyl(ObjectProperty<ObservableList<Vinyl>> property){
         property.bind(vinyls);
     }
-    public void bindPersons(ObjectProperty<ObservableList<Person>> property){
-        property.bind(persons);
-    }
-    public void bindSelectedVinyl(ReadOnlyObjectProperty<Vinyl> property){
-        vinyl.bind(property);
-    }
     public void bindSelected(ReadOnlyObjectProperty<Vinyl> property){
         vinyl.bind(property);
     }
