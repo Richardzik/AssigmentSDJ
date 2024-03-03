@@ -34,39 +34,38 @@ public class ManageVinylsViewModel implements PropertyChangeListener {
         model.addPropertyChangeListener(this);
     }
 
-    public void reserve(){
-        try{
-            if(vinyl.get() != null && person.get() != null)
+    public void reserve() {
+        try {
+            if (vinyl.get() != null && person.get() != null)
                 model.reserve(vinyl.get(), person.get());
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             message.setValue(e.getMessage());
         }
     }
+
     public void borrow() {
-        try{
-            if(vinyl.get() != null && person.get() != null)
+        try {
+            if (vinyl.get() != null && person.get() != null)
                 model.borrow(vinyl.get(), person.get());
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             message.setValue(e.getMessage());
         }
     }
-    public void returnIt(){
-        try{
-            if(vinyl.get() != null && person.get() != null)
-             model.returnIt(vinyl.get(), person.get());
-        }
-        catch (Exception e){
+
+    public void returnIt() {
+        try {
+            if (vinyl.get() != null && person.get() != null)
+                model.returnIt(vinyl.get(), person.get());
+        } catch (Exception e) {
             message.setValue(e.getMessage());
         }
     }
+
     public void remove() {
-        try{
-            if(vinyl.get() != null)
-             model.remove(vinyl.get());
-        }
-        catch (Exception e){
+        try {
+            if (vinyl.get() != null)
+                model.remove(vinyl.get());
+        } catch (Exception e) {
             message.setValue(e.getMessage());
         }
     }
@@ -80,16 +79,15 @@ public class ManageVinylsViewModel implements PropertyChangeListener {
 
 
 
-    ////Probably not functional
+    ////Probably not functional - IDK HOW TO FIX
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
-        Platform.runLater(() -> {
-            if (evt.getPropertyName().equals("ListOfVinyls")) {
-                ArrayList<Vinyl> temp = (ArrayList<Vinyl>) evt.getNewValue();
-                vinyls.clear();
-                temp.forEach(vinyls::add);
-            }
-        });
+        if (evt.getPropertyName().equals("ListOfVinyls")) {
+            ArrayList<Vinyl> temp = (ArrayList<Vinyl>) evt.getNewValue();
+            Platform.runLater(() -> {
+                vinyls.set(FXCollections.observableArrayList(temp));
+            });
+        }
     }
 
 }
