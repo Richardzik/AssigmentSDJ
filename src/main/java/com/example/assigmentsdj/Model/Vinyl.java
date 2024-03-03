@@ -1,9 +1,9 @@
 package com.example.assigmentsdj.Model;
 
 public class Vinyl {
-    private String title;
-    private String artist;
-    private int year;
+    private final String title;
+    private final String artist;
+    private final int year;
     private State lendingState;
     private Person borrower;
     private Person reservist;
@@ -31,24 +31,14 @@ public class Vinyl {
         return year;
     }
 
-    public void setYear(int year) {
-        this.year = year;
-    }
 
     public String getArtist() {
         return artist;
     }
 
-    public void setArtist(String artist) {
-        this.artist = artist;
-    }
 
     public String getTitle() {
         return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
     }
 
     public Person getBorrower() {

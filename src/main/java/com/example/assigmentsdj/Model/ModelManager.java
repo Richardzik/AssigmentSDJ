@@ -4,13 +4,13 @@ import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 import java.util.ArrayList;
 
-public class ModelManager implements Model {   // Library for vinyls
+public class ModelManager implements Model {
     private ArrayList<Vinyl> vinyls;
     private final PropertyChangeSupport support;
 
     public ModelManager(){
         this.vinyls = new ArrayList<>();
-        support = new PropertyChangeSupport(this);
+        this.support = new PropertyChangeSupport(vinyls);
     }
 
     @Override
