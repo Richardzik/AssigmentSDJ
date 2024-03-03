@@ -89,6 +89,12 @@ public class ManageVinylsViewController {
             ReturnButton.setDisable(false);
             RemoveButton.setDisable(false);
         }
+        if(selectedVinyl.get().getLendingState() instanceof Available){
+            BorrowButton.setDisable(true);
+            ReserveButton.setDisable(false);
+            ReturnButton.setDisable(true);
+            RemoveButton.setDisable(false);
+        }
     }
 
     public Region getRoot(){
