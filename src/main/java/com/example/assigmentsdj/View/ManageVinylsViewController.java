@@ -62,7 +62,9 @@ public class ManageVinylsViewController {
         manageVinylsViewModel.remove();
     }
     @FXML public void onSimulate(){
-
+        Simulation simulation = new Simulation(manageVinylsViewModel.getModel());
+        Thread thread = new Thread(simulation);
+        thread.start();
     }
     @FXML public void onBack(){
         viewHandler.closeView();

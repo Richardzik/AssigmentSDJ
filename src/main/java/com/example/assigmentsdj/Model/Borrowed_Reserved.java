@@ -17,7 +17,8 @@ public class Borrowed_Reserved implements State{
         if(vinyl.getBorrower().equals(person))
         {
             vinyl.setLendingState(new Reserved());
-            System.out.println("Vinyl got returned");
+            System.out.println("Vinyl got returned" + person);
+            vinyl.setBorrower(null);
         }
         else
             throw new RuntimeException("You cannot return vinyl that you did not borrowed");

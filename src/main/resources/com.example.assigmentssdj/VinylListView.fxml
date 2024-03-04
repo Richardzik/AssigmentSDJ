@@ -22,7 +22,7 @@
             <Button fx:id="ReturnButton" layoutX="549.0" layoutY="135.0" mnemonicParsing="false" onAction="#onReturn" prefHeight="26.0" prefWidth="62.0" text="Return" />
             <Button fx:id="RemoveButton" layoutX="549.0" layoutY="175.0" mnemonicParsing="false" onAction="#onRemove" prefHeight="26.0" prefWidth="62.0" text="Remove" />
             <Button layoutX="549.0" layoutY="351.0" mnemonicParsing="false" onAction="#onBack" prefHeight="26.0" prefWidth="62.0" text="Exit" />
-            <Button layoutX="527.0" layoutY="264.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="103.0" text="Simulate" />
+            <Button fx:id="SimulateButton" layoutX="527.0" layoutY="264.0" mnemonicParsing="false" onAction="#onSimulate" prefHeight="26.0" prefWidth="103.0" text="Simulate" />
             <TableView fx:id="VinylTableView" layoutX="22.0" layoutY="31.0" onMouseClicked="#onSelect" prefHeight="346.0" prefWidth="491.0">
                <columns>
                   <TableColumn fx:id="VinylTitle" prefWidth="151.0" text="Title" />

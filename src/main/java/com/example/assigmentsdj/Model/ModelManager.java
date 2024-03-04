@@ -44,7 +44,7 @@ public class ModelManager implements Model {
     }
 
     @Override
-    public void reserve(Vinyl vinyl, Person person) {
+    public synchronized void reserve(Vinyl vinyl, Person person) {
         try {
             vinyl.reserve(vinyl, person);
             notifyVinylsChanged();
@@ -54,7 +54,7 @@ public class ModelManager implements Model {
     }
 
     @Override
-    public void returnIt(Vinyl vinyl, Person person) {
+    public synchronized void returnIt(Vinyl vinyl, Person person) {
         try {
             vinyl.returnIt(vinyl, person);
             notifyVinylsChanged();
@@ -64,7 +64,7 @@ public class ModelManager implements Model {
     }
 
     @Override
-    public void remove(Vinyl vinyl) {
+    public synchronized void remove(Vinyl vinyl) {
         try {
             vinyl.remove(vinyl);
             notifyVinylsChanged();
@@ -76,6 +76,11 @@ public class ModelManager implements Model {
     @Override
     public ArrayList<Vinyl> getVinyls() {
         return vinyls;
+    }
+
+    public Vinyl getVinyl(int index)
+    {
+        return vinyls.get(index);
     }
 
     private void notifyVinylsChanged() {

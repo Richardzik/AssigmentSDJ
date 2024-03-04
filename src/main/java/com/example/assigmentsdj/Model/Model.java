@@ -11,4 +11,5 @@ public interface Model {
     void remove(Vinyl vinyl);
 
     List<Vinyl> getVinyls();
+    Vinyl getVinyl(int index);
 }

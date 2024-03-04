@@ -74,6 +74,9 @@ public class ManageVinylsViewModel implements PropertyChangeListener {
     public void bindSelected(ReadOnlyObjectProperty<Vinyl> property){
         vinyl.bind(property);
     }
+    public Model getModel() {
+        return model;
+    }
 
 
 
