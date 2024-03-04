@@ -7,9 +7,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.assigmentssdj.StartView">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: pearl;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.assigmentsdj.View.StartViewController">
    <children>
-      <Button fx:id="startButton" layoutX="208.0" layoutY="289.0" mnemonicParsing="false" onAction="#onStart" prefHeight="77.0" prefWidth="183.0" text="START">
+      <Button fx:id="startButton" layoutX="207.0" layoutY="295.0" mnemonicParsing="false" onAction="#onStart" prefHeight="77.0" prefWidth="183.0" text="START" textFill="#b714a1">
          <font>
             <Font size="34.0" />
          </font>
@@ -19,9 +19,9 @@
             <Image url="@vinylsImage.jpeg" />
          </image>
       </ImageView>
-      <Label layoutX="145.0" layoutY="24.0" text="Vinyl shop lending application">
+      <Label layoutX="84.0" layoutY="14.0" text="Vinyl shop lending application">
          <font>
-            <Font size="25.0" />
+            <Font name="System Bold Italic" size="30.0" />
          </font>
       </Label>
    </children>
