@@ -17,13 +17,13 @@ public class ViewHandler {
 
     public void start(Stage primaryStage) {
         this.primaryStage = primaryStage;
-        openView(ViewFactory.MANAGE);
+        openView(ViewFactory.START);
     }
 
     public void openView(String id) {
         Region root = viewFactory.loadView(id);
         if (root == null) {
-            return; // Handle the case where the view is not loaded properly
+            return;
         }
         currentScene.setRoot(root);
         Object userData = root.getUserData();
