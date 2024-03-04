@@ -29,13 +29,16 @@ public class ManageVinylsViewModel implements PropertyChangeListener {
         this.vinyls = new SimpleListProperty<>(FXCollections.observableArrayList());
         this.vinyl = new SimpleObjectProperty<>();
         this.person = new SimpleObjectProperty<>();
+        person.set(new Person("User"));
         model.addPropertyChangeListener(this);
+        vinyls.set(model.getVinyls());
     }
 
     public void reserve() {
         try {
-            if (vinyl.get() != null && person.get() != null)
+            if (vinyl.get() != null && person.get() !=null)
                 model.reserve(vinyl.get(), person.get());
+            System.out.println("2");
         } catch (Exception e) {
             message.setValue(e.getMessage());
         }
@@ -82,10 +85,8 @@ public class ManageVinylsViewModel implements PropertyChangeListener {
     public void propertyChange(PropertyChangeEvent evt) {
         Platform.runLater(() -> {
             if (evt.getPropertyName().equals("ListOfVinyls")) {
-                ArrayList<Vinyl> temp = (ArrayList<Vinyl>) evt.getNewValue();
-                vinyls.clear();
-                vinyls.addAll(temp);
-                vinyls.set(FXCollections.observableArrayList(temp));
+                ObservableList<Vinyl> temp = ( ObservableList<Vinyl>) evt.getNewValue();
+                vinyls.setAll(temp);
             }
         });
     }

@@ -80,4 +80,9 @@ public class Vinyl {
     {
         lendingState.remove(vinyl);
     }
+
+    public String toString()
+    {
+        return "Vinyl: " + title + " " + artist + " " + year;
+    }
 }
