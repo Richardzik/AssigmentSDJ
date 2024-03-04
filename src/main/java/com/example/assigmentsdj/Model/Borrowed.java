@@ -28,6 +28,11 @@ public class Borrowed implements State{
             System.out.println("Vinyl got returned by " + person);
             vinyl.setBorrower(null);
         }
+        if(vinyl.isToBeRemoved())
+        {
+            vinyl.setLendingState(new Removed());
+            System.out.println("Vinyl got removed");
+        }
         else
             throw new RuntimeException("You cannot return vinyl that you don't have");
     }

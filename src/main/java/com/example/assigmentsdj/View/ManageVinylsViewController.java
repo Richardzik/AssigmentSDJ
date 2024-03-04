@@ -25,6 +25,7 @@ public class ManageVinylsViewController {
     @FXML private Button ReserveButton;
     @FXML private Button ReturnButton;
     @FXML private Button RemoveButton;
+    @FXML private Button SimulateButton;
     private Region root;
     private ViewHandler viewHandler;
     private ReadOnlyObjectProperty<Vinyl> selectedVinyl;
@@ -60,6 +61,9 @@ public class ManageVinylsViewController {
     @FXML public void onRemove(){
         manageVinylsViewModel.remove();
     }
+    @FXML public void onSimulate(){
+
+    }
     @FXML public void onBack(){
         viewHandler.closeView();
     }
@@ -93,6 +97,10 @@ public class ManageVinylsViewController {
             ReserveButton.setDisable(false);
             ReturnButton.setDisable(true);
             RemoveButton.setDisable(false);
+        }
+        if(selectedVinyl.get().isToBeRemoved())
+        {
+            RemoveButton.setDisable(true);
         }
     }
 

@@ -68,7 +68,6 @@ public class ManageVinylsViewModel implements PropertyChangeListener {
             message.setValue(e.getMessage());
         }
     }
-
     public void bindVinyl(ObjectProperty<ObservableList<Vinyl>> property){
         property.bind(vinyls);
     }
