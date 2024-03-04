@@ -11,6 +11,7 @@ import javafx.collections.ObservableList;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.util.ArrayList;
+import java.util.List;
 
 public class ManageVinylsViewModel implements PropertyChangeListener {
 
@@ -26,19 +27,16 @@ public class ManageVinylsViewModel implements PropertyChangeListener {
     public ManageVinylsViewModel(Model model) {
         this.model = model;
         this.message = new SimpleStringProperty();
-        this.vinyls = new SimpleListProperty<>(FXCollections.observableArrayList());
+        this.vinyls = new SimpleListProperty<>(FXCollections.observableArrayList(model.getVinyls()));
         this.vinyl = new SimpleObjectProperty<>();
-        this.person = new SimpleObjectProperty<>();
-        person.set(new Person("User"));
+        this.person = new SimpleObjectProperty<>(new Person("User"));
         model.addPropertyChangeListener(this);
-        vinyls.set(model.getVinyls());
     }
 
     public void reserve() {
         try {
-            if (vinyl.get() != null && person.get() !=null)
+            if (vinyl.get() != null && person.get() != null)
                 model.reserve(vinyl.get(), person.get());
-            System.out.println("2");
         } catch (Exception e) {
             message.setValue(e.getMessage());
         }
@@ -85,7 +83,7 @@ public class ManageVinylsViewModel implements PropertyChangeListener {
     public void propertyChange(PropertyChangeEvent evt) {
         Platform.runLater(() -> {
             if (evt.getPropertyName().equals("ListOfVinyls")) {
-                ObservableList<Vinyl> temp = ( ObservableList<Vinyl>) evt.getNewValue();
+                List<Vinyl> temp = (List<Vinyl>) evt.getNewValue();
                 vinyls.setAll(temp);
             }
         });

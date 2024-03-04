@@ -1,8 +1,6 @@
 package com.example.assigmentsdj.Model;
-import javafx.collections.ObservableList;
-
 import java.beans.PropertyChangeListener;
-import java.util.ArrayList;
+import java.util.List;
 
 public interface Model {
     void addPropertyChangeListener(PropertyChangeListener listener);
@@ -11,5 +9,6 @@ public interface Model {
     void reserve(Vinyl vinyl, Person person);
     void returnIt(Vinyl vinyl, Person person);
     void remove(Vinyl vinyl);
-    ObservableList<Vinyl> getVinyls();
+
+    List<Vinyl> getVinyls();
 }

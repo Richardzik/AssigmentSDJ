@@ -2,7 +2,7 @@ package com.example.assigmentsdj.View;
 
 import com.example.assigmentsdj.Model.*;
 import com.example.assigmentsdj.ViewModel.ManageVinylsViewModel;
-import com.example.assigmentsdj.*;
+import com.example.assigmentsdj.ViewModel.ViewModelFactory;
 import javafx.beans.property.ReadOnlyObjectProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -49,13 +49,7 @@ public class ManageVinylsViewController {
         this.manageVinylsViewModel.bindSelected(selectedVinyl);
     }
     @FXML public void onReserve(){
-
-        if(selectedVinyl.get()!=null)
-        {
-            selectedVinyl.get().setReservist(new Person("User"));
-            manageVinylsViewModel.reserve();
-            System.out.println("1");
-        }
+        manageVinylsViewModel.reserve();
     }
     @FXML public void onBorrow(){
         manageVinylsViewModel.borrow();
@@ -64,10 +58,7 @@ public class ManageVinylsViewController {
         manageVinylsViewModel.returnIt();
     }
     @FXML public void onRemove(){
-        if(selectedVinyl.get()!=null)
-        {
-            manageVinylsViewModel.remove();
-        }
+        manageVinylsViewModel.remove();
     }
     @FXML public void onBack(){
         viewHandler.closeView();
@@ -108,5 +99,4 @@ public class ManageVinylsViewController {
     public Region getRoot(){
         return root;
     }
-
 }
