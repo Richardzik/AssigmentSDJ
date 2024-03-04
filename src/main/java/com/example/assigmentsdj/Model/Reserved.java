@@ -8,7 +8,7 @@ public class Reserved implements State{
         if(vinyl.getReservist().equals(person))
         {
             vinyl.setLendingState(new Borrowed());
-            System.out.println(vinyl + " got borrowed by " + person);
+            System.out.println(vinyl.getTitle() + " got borrowed by " + person);
             vinyl.setBorrower(person);
             vinyl.setReservist(null);
         }
@@ -29,6 +29,7 @@ public class Reserved implements State{
     public void remove(Vinyl vinyl)
     {
         vinyl.setToBeRemoved(true);
+        System.out.println(vinyl.getTitle() + " is about to get removed soon");
     }
     public String toString()
     {

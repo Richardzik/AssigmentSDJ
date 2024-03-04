@@ -4,12 +4,12 @@ public class Borrowed_Reserved implements State{
 
     @Override
     public void borrow(Vinyl vinyl, Person person) {
-        throw new RuntimeException("Vinyl is borrowed");
+        throw new RuntimeException(vinyl.getTitle() + " is borrowed");
     }
 
     @Override
     public void reserve(Vinyl vinyl, Person person) {
-        throw new RuntimeException("Vinyl is reserved");
+        throw new RuntimeException(vinyl.getTitle() +" is reserved");
     }
 
     @Override
@@ -17,7 +17,7 @@ public class Borrowed_Reserved implements State{
         if(vinyl.getBorrower().equals(person))
         {
             vinyl.setLendingState(new Reserved());
-            System.out.println("Vinyl got returned" + person);
+            System.out.println(vinyl.getTitle() +" got returned " + person);
             vinyl.setBorrower(null);
         }
         else
@@ -27,9 +27,10 @@ public class Borrowed_Reserved implements State{
     public void remove(Vinyl vinyl)
     {
         vinyl.setToBeRemoved(true);
+        System.out.println(vinyl.getTitle() + " is about to get removed soon");
     }
     public String toString()
     {
-        return "borrowed and reserved";
+        return "B&R";
     }
 }

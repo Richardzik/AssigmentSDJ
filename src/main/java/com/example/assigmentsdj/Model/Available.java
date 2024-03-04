@@ -11,7 +11,7 @@ public class Available implements State{
     public void reserve(Vinyl vinyl, Person person) {
         vinyl.setLendingState(new Reserved());
         vinyl.setReservist(person);
-        System.out.println(vinyl + " got reserved");
+        System.out.println(vinyl.getTitle() + " got reserved by " + person  );
     }
 
     @Override

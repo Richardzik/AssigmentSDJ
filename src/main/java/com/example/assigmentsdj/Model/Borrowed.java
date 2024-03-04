@@ -13,7 +13,7 @@ public class Borrowed implements State{
         if(!vinyl.getBorrower().equals(person) && !vinyl.isToBeRemoved())
         {
             vinyl.setLendingState(new Borrowed_Reserved());
-            System.out.println("Vinyl got reserved by " + person);
+            System.out.println( vinyl.getTitle() + " got reserved by " + person);
             vinyl.setReservist(person);
         }
         else
@@ -25,7 +25,7 @@ public class Borrowed implements State{
         if(vinyl.getBorrower().equals(person))
         {
             vinyl.setLendingState(new Available());
-            System.out.println("Vinyl got returned by " + person);
+            System.out.println(vinyl.getTitle() + " got returned by " + person);
             vinyl.setBorrower(null);
         }
         else
@@ -34,7 +34,7 @@ public class Borrowed implements State{
         if(vinyl.isToBeRemoved())
         {
             vinyl.setLendingState(new Removed());
-            System.out.println("Vinyl got removed");
+            System.out.println(vinyl.getTitle() + " got removed");
             vinyl.setBorrower(null);
             vinyl.setReservist(null);
         }
@@ -43,6 +43,7 @@ public class Borrowed implements State{
     public void remove(Vinyl vinyl)
     {
         vinyl.setToBeRemoved(true);
+        System.out.println(vinyl.getTitle() + " is about to get removed soon");
     }
     public String toString()
     {

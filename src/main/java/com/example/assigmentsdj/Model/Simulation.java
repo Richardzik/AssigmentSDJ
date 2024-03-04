@@ -33,7 +33,7 @@ public class Simulation implements Runnable
         model.borrow(model.getVinyl(4),bob);
         model.returnIt(model.getVinyl(4),bob);
 
-        
+
 
     } catch (InterruptedException e) {
       throw new RuntimeException(e);
